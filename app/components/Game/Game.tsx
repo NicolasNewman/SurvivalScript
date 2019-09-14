@@ -1,33 +1,39 @@
 import * as React from 'react';
 import { Component } from 'react';
-// import { RouteComponentProps } from 'react-router';
 
-// import * as Phaser from 'phaser';
-// import { IonPhaser } from '@ion-phaser/react';
+import Phaser from 'phaser';
+import MainScene from '../../Game/Scenes/testScene';
+import { GAME_WIDTH, HEIGHT } from '../../config';
 
-// interface IProps extends RouteComponentProps<any> {
-//     game: any;
-//     initialize: any;
-// }
+interface IProps {
+    game: any;
+    initialize: any;
+}
 
-export default class Game extends Component {
-    //<IProps> {
-    // props: IProps;
+export default class Game extends Component<IProps> {
+    props: IProps;
 
-    // constructor(props, history) {
-    //     super(props);
-    // }
+    constructor(props, history) {
+        super(props);
+    }
+
+    componentDidMount() {
+        const config: Phaser.Types.Core.GameConfig = {
+            type: Phaser.AUTO,
+            width: GAME_WIDTH,
+            height: HEIGHT,
+            parent: 'game',
+            scene: [MainScene]
+        };
+        new Phaser.Game(config);
+    }
+
+    shouldComponentUpdate() {
+        return false;
+    }
 
     render() {
-        // console.log(this.props);
-        return (
-            <div>
-                <h1>Hi</h1>
-            </div>
-            // <IonPhaser
-            //     game={this.props.game}
-            //     initialize={this.props.initialize}
-            // />
-        );
+        console.log(this.props);
+        return <div id="game"></div>;
     }
 }

@@ -24,7 +24,10 @@ export default class Home extends Component<IProps> {
         return (
             <div className="home grid two-col" data-tid="container">
                 <div className="">
-                    <Game />
+                    <Game
+                        game={this.props.game}
+                        initialize={this.props.initialize}
+                    />
                 </div>
                 <div className="">
                     <Tabs />
