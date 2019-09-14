@@ -2,18 +2,31 @@
 // import { TOGGLE_UI } from "../store/gameReducer";
 import { Scene } from 'phaser';
 
+// C:\JSProj\SurvivalScript\app\Game\Scenes\assets\tilesets\MarsTileSet.png
+
 export default class ExampleScene extends Scene {
-    create() {
-        const text = this.add.text(250, 250, 'Toggle UI', {
-            backgroundColor: 'white',
-            color: 'blue',
-            fontSize: 48
-        });
-
-        text.setInteractive({ useHandCursor: true });
-
-        text.on('pointerup', () => {
-            //   store.dispatch({ type: TOGGLE_UI });
-        });
+    preload() {
+        this.load.image('tiles', 'Game/Scenes/assets/tilesets/MarsTileSet.png');
+        this.load.tilemapTiledJSON(
+            'map',
+            'Game/Scenes/assets/tilemaps/MarsMapFinal.json'
+        );
+        console.log('end preload');
     }
+    create() {
+        const map = this.make.tilemap({ key: 'map' });
+
+        const tileset = map.addTilesetImage('MarsTileSet', 'tiles');
+
+        const belowLayer = map.createStaticLayer('Below Player', tileset, 0, 0);
+        const worldLayer = map.createStaticLayer('World', tileset, 0, 0);
+        const aboveLayer = map.createStaticLayer('Above Player', tileset, 0, 0);
+
+        const camera = this.cameras.main;
+
+        camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+        console.log('end create');
+    }
+
+    update(time, delta) {}
 }

@@ -23,9 +23,12 @@ export default class Game extends Component<IProps> {
             width: GAME_WIDTH,
             height: HEIGHT,
             parent: 'game',
+            render: {
+                pixelArt: true
+            },
             scene: [MainScene]
         };
-        new Phaser.Game(config);
+        const game = new Phaser.Game(config);
     }
 
     shouldComponentUpdate() {
