@@ -4,7 +4,7 @@ import { Component } from 'react';
 // const routes = require('../constants/routes.json');
 
 import Game from '../Game/Game';
-import Tabs from '../Tabs/Tabs';
+import UserTabs from '../Tabs/UserTabs';
 import { RouteComponentProps } from 'react-router';
 
 interface IProps extends RouteComponentProps<any> {
@@ -30,7 +30,7 @@ export default class Home extends Component<IProps> {
                     />
                 </div>
                 <div className="">
-                    <Tabs />
+                    <UserTabs />
                 </div>
 
                 {/* <Link to={routes.COUNTER}>to Counter</Link> */}
