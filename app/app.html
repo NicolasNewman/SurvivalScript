@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Hello Electron React!</title>
+        <title>SurvivalScript</title>
         <script>
             (function() {
                 if (!process.env.HOT) {
@@ -44,6 +44,15 @@
                         .join('')
                 );
             }
+        </script>
+        <script>
+            var cet = require('custom-electron-titlebar');
+            new cet.Titlebar({
+                backgroundColor: cet.Color.fromHex('#37474f'),
+                overflow: 'hidden'
+                // icon: './icon.png'
+                // shadow: true
+            });
         </script>
     </body>
 </html>
