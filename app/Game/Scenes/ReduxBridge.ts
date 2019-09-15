@@ -5,14 +5,14 @@ import { clearCode } from '../../actions/code';
 /**
  * Gets the code in the code panel
  */
-export const getCodeWrapper = () => {
+export const getCodeWrapper = (): string => {
     return store.getState().code.code;
 };
 
 /**
  * Clears the code in the code panel
  */
-export const clearCodeWrapper = () => {
+export const clearCodeWrapper = (): void => {
     return store.dispatch(clearCode());
 };
 
@@ -20,13 +20,13 @@ export const clearCodeWrapper = () => {
  * Writes a new line to the output panel
  * @param {string} text - the text to log to the output
  */
-export const logOutputWrapper = (text: string) => {
+export const logOutputWrapper = (text: string): void => {
     return store.dispatch(log(text));
 };
 
 /**
  * Clears all text in the output panel
  */
-export const clearOutputWrapper = () => {
+export const clearOutputWrapper = (): void => {
     return store.dispatch(clearOutput());
 };
