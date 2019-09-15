@@ -17,6 +17,10 @@ export default function output(
             return {
                 code: action.code
             };
+        case CodeTypeKeys.CLEAR_CODE:
+            return {
+                code: ''
+            };
         default:
             return state;
     }

@@ -1,7 +1,8 @@
 import { string } from 'prop-types';
 
 export enum CodeTypeKeys {
-    SET_CODE = 'SET_CODE'
+    SET_CODE = 'SET_CODE',
+    CLEAR_CODE = 'CLEAR_CODE'
 }
 
 interface CodeAction {
@@ -9,7 +10,11 @@ interface CodeAction {
     code: string;
 }
 
-export type CodeTypes = CodeAction;
+interface ClearAction {
+    type: CodeTypeKeys.CLEAR_CODE;
+}
+
+export type CodeTypes = CodeAction | ClearAction;
 
 /**
  * Signals the store to grab the text currently in the code input and store it
@@ -22,4 +27,13 @@ export function setCode(code: string) {
     };
 }
 
-export default { setCode };
+/**
+ * Clears all code text cached in the store
+ */
+export function clearCode() {
+    return {
+        type: CodeTypeKeys.CLEAR_CODE
+    };
+}
+
+export default { setCode, clearCode };
