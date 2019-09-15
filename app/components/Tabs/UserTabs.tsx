@@ -27,7 +27,7 @@ export default class UserTabs extends Component<IProps> {
                 <TabPane tab="Code" key={tabKeys.TERMINAL}>
                     <CodeTab allText={this.props.allText} />
                 </TabPane>
-                <TabPane tab="API" key={tabKeys.API}>
+                <TabPane tab="Command List" key={tabKeys.API}>
                     <APITab text={this.props.text} />
                 </TabPane>
             </Tabs>
