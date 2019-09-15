@@ -18,13 +18,27 @@ export default function api(state: IApiState = initialState, action: ApiTypes) {
         case ApiTypeKeys.ADD_LEVEL:
             let newText = '';
             const indx = state.levelIndex + 1;
-            for (let i = 0; i < state.levelIndex; i++) {
+            for (let i = 0; i <= indx && i < state.levels.length; i++) {
                 newText += state.levels[i];
             }
             return {
                 levels: state.levels,
                 levelIndex: indx,
                 text: newText
+            };
+        case ApiTypeKeys.LOAD_LEVELS:
+            let newText3 = '';
+            for (
+                let i = 0;
+                i <= state.levelIndex && i < state.levels.length;
+                i++
+            ) {
+                newText3 += state.levels[i];
+            }
+            return {
+                levels: state.levels,
+                levelIndex: state.levelIndex,
+                text: newText3
             };
         case ApiTypeKeys.DEBUG:
             let newText2 = '';

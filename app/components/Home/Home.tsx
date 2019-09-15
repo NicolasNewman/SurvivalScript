@@ -17,6 +17,7 @@ interface IProps extends RouteComponentProps<any> {
     log: (text: string) => void;
     debug: (indexes: Array<number>) => void;
     addLevel: () => void;
+    loadLevels: () => void;
     setCode: (code: string) => void;
 }
 
@@ -25,6 +26,7 @@ export default class Home extends Component<IProps> {
 
     constructor(props, history) {
         super(props);
+        this.props.loadLevels();
     }
 
     render() {

@@ -2,11 +2,21 @@ import { string } from 'prop-types';
 
 export enum ApiTypeKeys {
     ADD_LEVEL = 'ADD_LEVEL',
+    LOAD_LEVELS = 'LOAD_LEVELS',
     DEBUG = 'DEBUG'
 }
 
 interface AddLevelAction {
     type: ApiTypeKeys.ADD_LEVEL;
+}
+
+interface LoadLevelAction {
+    type: ApiTypeKeys.LOAD_LEVELS;
+}
+
+interface DebugAction {
+    type: ApiTypeKeys.DEBUG;
+    indexes: Array<number>;
 }
 
 /**
@@ -19,9 +29,10 @@ export function addLevel() {
     };
 }
 
-interface DebugAction {
-    type: ApiTypeKeys.DEBUG;
-    indexes: Array<number>;
+export function loadLevels() {
+    return {
+        type: ApiTypeKeys.LOAD_LEVELS
+    };
 }
 
 /**
@@ -35,5 +46,5 @@ export function debug(indexes: Array<number>) {
     };
 }
 
-export type ApiTypes = AddLevelAction | DebugAction;
-export default { addLevel, debug };
+export type ApiTypes = AddLevelAction | LoadLevelAction | DebugAction;
+export default { addLevel, loadLevels, debug };
