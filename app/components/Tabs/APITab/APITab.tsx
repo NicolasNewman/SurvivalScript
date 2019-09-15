@@ -3,13 +3,16 @@ import { Component } from 'react';
 
 import ReactMarkdown from 'react-markdown';
 
-const input = '# This is a header';
+interface IProps {
+    text: string;
+}
 
-export default class APITab extends Component {
+export default class APITab extends Component<IProps> {
     render() {
+        console.log(this.props.text);
         return (
             <div>
-                <ReactMarkdown source={input} />
+                <ReactMarkdown source={this.props.text} escapeHtml={false} />
             </div>
         );
     }

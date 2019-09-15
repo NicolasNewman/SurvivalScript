@@ -2,9 +2,9 @@ import { ApiTypeKeys, ApiTypes } from '../actions/api';
 import { LevelList } from '../constants/api-levels';
 
 export interface IApiState {
-    levels: Array<String>;
+    levels: Array<string>;
     levelIndex: number;
-    text: String;
+    text: string;
 }
 
 const initialState: IApiState = {
@@ -13,10 +13,7 @@ const initialState: IApiState = {
     text: ''
 };
 
-export default function output(
-    state: IApiState = initialState,
-    action: ApiTypes
-) {
+export default function api(state: IApiState = initialState, action: ApiTypes) {
     switch (action.type) {
         case ApiTypeKeys.ADD_LEVEL:
             let newText = '';
@@ -30,15 +27,19 @@ export default function output(
                 text: newText
             };
         case ApiTypeKeys.DEBUG:
-            let text = '';
+            let newText2 = '';
             for (let i = 0; i < state.levels.length; i++) {
                 for (let j = 0; j < action.indexes.length; j++) {
                     if (action.indexes[j] === i) {
-                        newText += state.levels[i];
+                        newText2 += state.levels[i];
                     }
                 }
             }
-            return {};
+            return {
+                levels: state.levels,
+                levelIndex: state.levelIndex,
+                text: newText2
+            };
         default:
             return state;
     }
