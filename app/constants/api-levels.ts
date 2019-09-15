@@ -24,7 +24,7 @@ export const LevelList: Array<string> = [
     \nx == 5 
     \n**Def:** == used to compare the value of two variables returning true or false, x does equal 5 and therefore this is true 
     
-    \nValues using these operators are controlled, maintained and updated by the Central Command, tampering with such values will lead to deactivation 
+    \nValues using these operators (🔏) are controlled, maintained and updated by the Central Command, tampering with such values will lead to deactivation 
     
     \n+ 
     \nx = 5+5 
