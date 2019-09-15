@@ -1,8 +1,19 @@
 import * as React from 'react';
 import { Component } from 'react';
 
-export default class APITab extends Component {
+import ReactMarkdown from 'react-markdown';
+
+interface IProps {
+    text: string;
+}
+
+export default class APITab extends Component<IProps> {
     render() {
-        return <h1>Pie</h1>;
+        console.log(this.props.text);
+        return (
+            <div>
+                <ReactMarkdown source={this.props.text} escapeHtml={false} />
+            </div>
+        );
     }
 }
