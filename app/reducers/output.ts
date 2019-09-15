@@ -19,7 +19,7 @@ export default function output(
             //     ? state.allText.pop()
             //     : state.allText;
             return {
-                allText: [...this.state.allText, formatText, '> ']
+                allText: [...state.allText, formatText, '> ']
             };
         default:
             return state;
