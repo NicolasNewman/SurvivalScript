@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Component } from 'react';
 
 import Phaser from 'phaser';
+import TitleScene from '../../Game/Scenes/titleScene';
 import MainScene from '../../Game/Scenes/testScene';
+import BlackScene from '../../Game/Scenes/blackScene';
 import { GAME_WIDTH, HEIGHT } from '../../config';
+import M from 'minimatch';
 
-interface IProps {
-    game: any;
-    initialize: any;
-}
+interface IProps {}
 
 export default class Game extends Component<IProps> {
     props: IProps;
@@ -26,14 +26,7 @@ export default class Game extends Component<IProps> {
             render: {
                 pixelArt: true
             },
-            physics: {
-                default: 'arcade',
-                arcade: {
-                    gravity: { y: 0 }, // will affect our player sprite
-                    debug: false // change if you need
-                }
-            },
-            scene: [MainScene]
+            scene: [TitleScene, MainScene, BlackScene]
         };
         const game = new Phaser.Game(config);
     }
@@ -43,7 +36,6 @@ export default class Game extends Component<IProps> {
     }
 
     render() {
-        console.log(this.props);
         return <div id="game"></div>;
     }
 }
