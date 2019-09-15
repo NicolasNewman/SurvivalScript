@@ -26,6 +26,13 @@ export default class Game extends Component<IProps> {
             render: {
                 pixelArt: true
             },
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 0 }, // will affect our player sprite
+                    debug: false // change if you need
+                }
+            },
             scene: [MainScene]
         };
         const game = new Phaser.Game(config);

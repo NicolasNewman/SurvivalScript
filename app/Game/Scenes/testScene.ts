@@ -5,7 +5,11 @@ import { Scene } from 'phaser';
 // C:\JSProj\SurvivalScript\app\Game\Scenes\assets\tilesets\MarsTileSet.png
 
 export default class ExampleScene extends Scene {
+    player = null;
+    cursors = null;
     preload() {
+        this.load.image('player', 'Game/Scenes/assets/sprites/robotSprite.jpg');
+
         this.load.image('tiles', 'Game/Scenes/assets/tilesets/MarsTileSet.png');
         this.load.tilemapTiledJSON(
             'map',
@@ -14,6 +18,12 @@ export default class ExampleScene extends Scene {
         console.log('end preload');
     }
     create() {
+        this.player = this.physics.add.sprite(640, 310, 'player');
+        this.player.setScale(1 / 10, 1 / 10);
+        this.player.setCollideWorldBounds(true); // don't go out of the map
+
+        this.cursors = this.input.keyboard.createCursorKeys();
+
         const map = this.make.tilemap({ key: 'map' });
 
         const tileset = map.addTilesetImage('MarsTileSet', 'tiles');
@@ -28,5 +38,21 @@ export default class ExampleScene extends Scene {
         console.log('end create');
     }
 
-    update(time, delta) {}
+    update(time, delta) {
+        if (this.cursors.left.isDown) {
+            // if the left arrow key is down
+            this.player.body.setVelocityX(-200); // move left
+        } else if (this.cursors.right.isDown) {
+            // if the right arrow key is down
+            this.player.body.setVelocityX(200); // move right
+        } else {
+            this.player.body.setVelocityX(0);
+        }
+        if (
+            (this.cursors.space.isDown || this.cursors.up.isDown) &&
+            this.player.body.onFloor()
+        ) {
+            this.player.body.setVelocityY(-500); // jump up
+        }
+    }
 }
