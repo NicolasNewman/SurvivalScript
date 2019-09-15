@@ -1,13 +1,15 @@
 import * as React from 'react';
 import { Component } from 'react';
 
+import CodeTab from './CodeTab/CodeTab';
+
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
 const tabKeys = {
     TERMINAL: 'terminal',
-    CODE: 'code'
+    API: 'api'
 };
 
 export default class UserTabs extends Component {
@@ -16,10 +18,10 @@ export default class UserTabs extends Component {
     render() {
         return (
             <Tabs onChange={this.tabChanged}>
-                <TabPane tab="Terminal" key={tabKeys.TERMINAL}>
-                    <h1>Tab 1</h1>
+                <TabPane tab="Code" key={tabKeys.TERMINAL}>
+                    <CodeTab />
                 </TabPane>
-                <TabPane tab="Code" key={tabKeys.CODE}>
+                <TabPane tab="API" key={tabKeys.API}>
                     <h1>Tab 2</h1>
                 </TabPane>
             </Tabs>
