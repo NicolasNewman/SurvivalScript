@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 
 import Phaser from 'phaser';
+import TitleScene from '../../Game/Scenes/titleScene';
 import MainScene from '../../Game/Scenes/testScene';
 import { GAME_WIDTH, HEIGHT } from '../../config';
 
@@ -26,7 +27,7 @@ export default class Game extends Component<IProps> {
             render: {
                 pixelArt: true
             },
-            scene: [MainScene]
+            scene: [TitleScene]
         };
         const game = new Phaser.Game(config);
     }
