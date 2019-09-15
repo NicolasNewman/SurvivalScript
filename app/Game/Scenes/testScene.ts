@@ -62,7 +62,7 @@ export default class ExampleScene extends Scene {
         //Movement
 
         //Up
-        let wKey = this.input.keyboard.addKey('W');
+        let wKey = this.input.keyboard.addKey('UP');
 
         wKey.on('down', event => {
             //Checking Tile Below
@@ -95,7 +95,7 @@ export default class ExampleScene extends Scene {
         });
 
         //Right
-        let dKey = this.input.keyboard.addKey('D');
+        let dKey = this.input.keyboard.addKey('RIGHT');
 
         dKey.on('down', event => {
             //Checking Tile Below
@@ -128,7 +128,7 @@ export default class ExampleScene extends Scene {
         });
 
         //Left
-        let aKey = this.input.keyboard.addKey('A');
+        let aKey = this.input.keyboard.addKey('LEFT');
 
         aKey.on('down', event => {
             //Checking Tile Below
@@ -161,7 +161,7 @@ export default class ExampleScene extends Scene {
         });
 
         //Down
-        let sKey = this.input.keyboard.addKey('S');
+        let sKey = this.input.keyboard.addKey('DOWN');
 
         sKey.on('down', event => {
             //Checking Tile Below
