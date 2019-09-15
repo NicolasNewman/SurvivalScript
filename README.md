@@ -13,4 +13,4 @@ beginners of programming how to read documentation, since we belive many learnin
 -   **Nicolas Newman** - UI Implementation, Redux Managment - [NicolasNewman](https://github.com/NicolasNewman)
 -   **Avanish Subbiah** - Game World and Movement, Tilesets and maps - [avanishsubbiahs](https://github.com/avanishsubbiahs)
 -   **Firstname Lastname** - First job, more jobs, etc - [GithubUsername](https://github.com/GithubUsername)
--   **Firstname Lastname** - First job, more jobs, etc - [GithubUsername](https://github.com/GithubUsername)
+-   **Maxwell Low** - API/Tutorial Interface, Game Design - [maxlow11](https://github.com/maxlow11)
