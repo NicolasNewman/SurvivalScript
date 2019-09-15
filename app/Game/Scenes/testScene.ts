@@ -4,9 +4,12 @@ import { Scene } from 'phaser';
 import Title from 'antd/lib/typography/Title';
 import { deflate } from 'zlib';
 
-import { store } from '../../index';
-import { log, clearOutput } from '../../actions/output';
-import { clearCode } from '../../actions/code';
+import {
+    clearCodeWrapper,
+    getCodeWrapper,
+    logOutputWrapper,
+    clearOutputWrapper
+} from './ReduxBridge';
 
 // C:\JSProj\SurvivalScript\app\Game\Scenes\assets\tilesets\MarsTileSet.png
 
@@ -41,17 +44,9 @@ export default class ExampleScene extends Scene {
             'Game/Scenes/assets/character/TestCharacter.png'
         );
     }
-    getCode() {
-        // Get the code
-        return store.getState().code.code;
-    }
-    logOutput(text) {
-        store.dispatch(log(text));
-    }
 
     //Create Function for Game Code
     create() {
-        console.log('getCode', this.getCode());
         //Create run button
         //const runButton = this.add.text(800, 300, 'runButton');
         //runButton.setInteractive();
@@ -106,11 +101,6 @@ export default class ExampleScene extends Scene {
                 player.y - (64 + 32),
                 true
             );
-
-            // Get the code
-            console.log('GAME STORE ', store.getState().code.code);
-            // Log to output
-            store.dispatch(log(`Player at (${player.x}, ${player.y})`));
 
             //Placing Footprints
             const tileAt = worldLayer.getTileAtWorldXY(player.x, player.y);
