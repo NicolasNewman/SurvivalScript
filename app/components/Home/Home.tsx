@@ -23,7 +23,7 @@ export default class Home extends Component<IProps> {
 
     constructor(props, history) {
         super(props);
-        this.props.debug([1]);
+        this.props.debug([0, 1]);
         this.props.log('Hello world!');
         this.props.log('Hello taco!');
         this.props.log('Hello taco!');
