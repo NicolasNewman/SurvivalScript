@@ -25,20 +25,6 @@ export default class Home extends Component<IProps> {
 
     constructor(props, history) {
         super(props);
-        this.props.debug([0]);
-        this.props.log('Hello world!');
-        this.props.log('Hello taco!');
-        this.props.log('Hello taco!');
-        this.props.log('Hello taco!');
-        this.props.log('Hello taco!');
-        this.props.log('Hello taco!');
-        this.props.log('Hello taco!');
-        this.props.log('Hello taco!');
-        this.props.log('Hello taco!');
-        this.props.log('Hello world!');
-        this.props.log('Hello world!');
-        this.props.log('Hello world!');
-        this.props.log('Hello world!');
     }
 
     render() {

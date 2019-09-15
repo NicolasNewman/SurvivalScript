@@ -35,6 +35,6 @@ export const clearOutputWrapper = () => {
 /**
  * Unlocks the next level in the API tree
  */
-export const addLevel = () => {
+export const addLevelWrapper = () => {
     return store.dispatch(addLevel());
 };
