@@ -27,7 +27,7 @@ export default class Game extends Component<IProps> {
             render: {
                 pixelArt: true
             },
-            scene: [TitleScene]
+            scene: [TitleScene, MainScene]
         };
         const game = new Phaser.Game(config);
     }
