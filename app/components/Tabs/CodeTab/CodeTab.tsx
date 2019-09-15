@@ -4,12 +4,16 @@ import { Component } from 'react';
 import CodeEditor from './CodeEditor';
 import Output from './Output';
 
-export default class CodeTab extends Component {
+interface IProps {
+    allText: Array<String>;
+}
+
+export default class CodeTab extends Component<IProps> {
     render() {
         return (
             <div className="code-tab">
                 <CodeEditor />
-                <Output />
+                <Output allText={this.props.allText} />
             </div>
         );
     }
