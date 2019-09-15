@@ -11,6 +11,10 @@ interface LogAction {
 
 export type OutputTypes = LogAction;
 
+/**
+ * Signals for information to be logged to the output component
+ * @param {string} text - text to be logged to the screen;
+ */
 export function log(text: string) {
     return {
         type: OutputTypeKeys.LOG_OUTPUT,
