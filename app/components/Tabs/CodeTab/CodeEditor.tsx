@@ -21,7 +21,11 @@ export default class CodeEditor extends Component<IProps> {
 
     render() {
         return (
-            <TextArea onChange={this.codeChanged} autosize={{ minRows: 22 }} />
+            <TextArea
+                value={this.props.code}
+                onChange={this.codeChanged}
+                autosize={{ minRows: 22 }}
+            />
         );
     }
 }

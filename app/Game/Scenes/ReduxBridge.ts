@@ -1,6 +1,7 @@
 import { store } from '../../index';
 import { log, clearOutput } from '../../actions/output';
 import { clearCode } from '../../actions/code';
+import { addLevel } from '../../actions/api';
 
 /**
  * Gets the code in the code panel
@@ -29,4 +30,11 @@ export const logOutputWrapper = (text: string) => {
  */
 export const clearOutputWrapper = () => {
     return store.dispatch(clearOutput());
+};
+
+/**
+ * Unlocks the next level in the API tree
+ */
+export const addLevelWrapper = () => {
+    return store.dispatch(addLevel());
 };
