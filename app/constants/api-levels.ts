@@ -56,7 +56,9 @@ export const LevelList: Array<string> = [
     \nrobotX = 5.000000000 
     \nrobotY = 12.000000000 
     \n**Def:** variables above are type **double** which take on numbers with decimal places 
-    
+    \nrobotDrive = 'False'
+    \n**Def:** the variable above is type **boolean** which takes on the the value of either 'True' or 'False'
+
     \narray = [entry1,entry2, …] 
     \nsatVideoCordinates = [satVideoX, satVideoY] 
     \nrobotCordinates = [robotX, robotY] 
