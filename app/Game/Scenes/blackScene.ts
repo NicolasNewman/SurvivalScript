@@ -1,11 +1,13 @@
 import { Scene } from 'phaser';
 
-export default class blackScene extends Scene {
+export default class BlackScene extends Scene {
     constructor() {
-        super('blackScene');
+        super('BlackScene');
     }
     preload() {}
-    create() {}
+    create() {
+        //this.text.add(0, 0, '');
+    }
 
     update(time, delta) {
         const keyObj = this.input.keyboard.addKey('Y');

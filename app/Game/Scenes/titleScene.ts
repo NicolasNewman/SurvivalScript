@@ -23,7 +23,7 @@ export default class TitleScene extends Scene {
     update(time, delta) {
         const keyObj = this.input.keyboard.addKey('Y');
         if (keyObj.isDown) {
-            this.scene.start('MainScene');
+            this.scene.start('BlackScene');
         }
     }
 }
