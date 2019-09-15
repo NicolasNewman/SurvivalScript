@@ -19,9 +19,6 @@ export default class Output extends Component<IProps> {
     }
 
     componentDidUpdate() {
-        console.log('Output log ', this.outputLog);
-        console.log(this.outputLog.current.textAreaRef.scrollTop);
-        console.log(this.outputLog.current.textAreaRef.scrollHeight);
         this.outputLog.current.textAreaRef.scrollTop = this.outputLog.current.textAreaRef.scrollHeight;
     }
 
