@@ -12,6 +12,7 @@ export default class TitleScene extends Scene {
     }
     create() {
         this.add.image(415, 330, 'Background').setDisplaySize(830, 720);
+        this.add.text(415, 330, 'START?');
         //this.Background.setOrigin(0, 0);
         //const camera = this.cameras.main;
 

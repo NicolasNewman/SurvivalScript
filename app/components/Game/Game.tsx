@@ -5,6 +5,7 @@ import Phaser from 'phaser';
 import TitleScene from '../../Game/Scenes/titleScene';
 import MainScene from '../../Game/Scenes/testScene';
 import { GAME_WIDTH, HEIGHT } from '../../config';
+import M from 'minimatch';
 
 interface IProps {
     game: any;
@@ -27,7 +28,7 @@ export default class Game extends Component<IProps> {
             render: {
                 pixelArt: true
             },
-            scene: [TitleScene]
+            scene: [TitleScene, MainScene]
         };
         const game = new Phaser.Game(config);
     }
