@@ -5,10 +5,7 @@ import Phaser from 'phaser';
 import MainScene from '../../Game/Scenes/testScene';
 import { GAME_WIDTH, HEIGHT } from '../../config';
 
-interface IProps {
-    game: any;
-    initialize: any;
-}
+interface IProps {}
 
 export default class Game extends Component<IProps> {
     props: IProps;
@@ -33,7 +30,6 @@ export default class Game extends Component<IProps> {
     }
 
     render() {
-        console.log(this.props);
         return <div id="game"></div>;
     }
 }

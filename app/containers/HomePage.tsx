@@ -2,19 +2,18 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import Home from '../components/Home/Home';
 
-import GameActions from '../actions/game';
+import OutputActions from '../actions/output';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        game: state.game.game,
-        initalize: state.game.initialize
+        allText: state.output.allText
     };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
     return bindActionCreators(
         {
-            ...GameActions
+            ...OutputActions
         },
         dispatch
     );

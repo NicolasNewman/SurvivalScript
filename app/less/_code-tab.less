@@ -5,6 +5,7 @@
 .code-tab {
     // height: 100%;
     // max-width: 830px;
+    max-height: 720px;
     margin: 0 10px;
     & textarea {
         max-width: 100%;
@@ -13,5 +14,9 @@
         margin: 5px 0;
         background-color: @terminal-bg-color;
         color: @terminal-font-color;
+    }
+
+    & textarea:last-of-type {
+        max-height: 135px !important;
     }
 }
