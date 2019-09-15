@@ -4,7 +4,8 @@ import {
     clearCodeWrapper,
     getCodeWrapper,
     logOutputWrapper,
-    clearOutputWrapper
+    clearOutputWrapper,
+    addLevelWrapper
 } from './ReduxBridge';
 
 export default class BlackScene extends Scene {
@@ -60,6 +61,8 @@ export default class BlackScene extends Scene {
             logOutputWrapper(
                 'Find and set satVideoCoordinates equal to robotCoordinates'
             );
+            addLevelWrapper();
+            logOutputWrapper('New memory available in Command List');
         }
         if (this.userInput2 === 'satVideoCoordinates == robotCoordinates') {
             logOutputWrapper('Automatic Satellite Visual Restored');
