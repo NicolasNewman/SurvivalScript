@@ -74,6 +74,10 @@ export default class ExampleScene extends Scene {
                 player.y - (64 + 32),
                 true
             );
+
+            // Get the code
+            console.log('GAME STORE ', store.getState().code.code);
+            // Log to output
             store.dispatch(log(`Player at (${player.x}, ${player.y})`));
 
             //Placing Footprints
