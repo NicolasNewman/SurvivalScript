@@ -1,12 +1,11 @@
-export default [
+export const LevelList: Array<string> = [
     `
     # Level 0 \n
     ## Heading 2
     `,
-    `
-    # Level 1.1 \n
-    ## Heading 2
-    `,
+    `# Level 1.1
+    \n## Hello
+    \nThis sucks`,
     `
     # Level 1.2 \n
     ## Heading 2
