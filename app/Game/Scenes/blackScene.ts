@@ -64,7 +64,7 @@ export default class BlackScene extends Scene {
             addLevelWrapper();
             logOutputWrapper('New memory available in Command List');
         }
-        if (this.userInput2 === 'satVideoCoordinates == robotCoordinates') {
+        if (this.userInput2 === 'satVideoCoordinates = robotCoordinates') {
             logOutputWrapper('Automatic Satellite Visual Restored');
             this.scene.start('MainScene');
         }
