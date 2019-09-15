@@ -9,7 +9,8 @@ import { Tabs } from 'antd';
 const { TabPane } = Tabs;
 
 interface IProps {
-    allText: Array<String>;
+    allText: Array<string>;
+    text: string;
 }
 
 const tabKeys = {
@@ -27,7 +28,7 @@ export default class UserTabs extends Component<IProps> {
                     <CodeTab allText={this.props.allText} />
                 </TabPane>
                 <TabPane tab="API" key={tabKeys.API}>
-                    <APITab />
+                    <APITab text={this.props.text} />
                 </TabPane>
             </Tabs>
         );
