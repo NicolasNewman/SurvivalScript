@@ -1,7 +1,8 @@
 import { string } from 'prop-types';
 
 export enum OutputTypeKeys {
-    LOG_OUTPUT = 'LOG_OUTPUT'
+    LOG_OUTPUT = 'LOG_OUTPUT',
+    CLEAR_OUTPUT = 'CLEAR_OUTPUT'
 }
 
 interface LogAction {
@@ -9,7 +10,11 @@ interface LogAction {
     text: string;
 }
 
-export type OutputTypes = LogAction;
+interface ClearAction {
+    type: OutputTypeKeys.CLEAR_OUTPUT;
+}
+
+export type OutputTypes = LogAction | ClearAction;
 
 /**
  * Signals for information to be logged to the output component
@@ -22,4 +27,13 @@ export function log(text: string) {
     };
 }
 
-export default { log };
+/**
+ * Clears all output text cached in the store
+ */
+export function clearOutput() {
+    return {
+        type: OutputTypeKeys.CLEAR_OUTPUT
+    };
+}
+
+export default { log, clearOutput };

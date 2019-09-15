@@ -4,8 +4,24 @@ import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-export default class CodeEditor extends Component {
+interface IProps {
+    code: string;
+    setCode: (code: string) => void;
+}
+
+export default class CodeEditor extends Component<IProps> {
+    props: IProps;
+    constructor(props) {
+        super(props);
+    }
+
+    codeChanged = e => {
+        this.props.setCode(e.target.value);
+    };
+
     render() {
-        return <TextArea autosize={{ minRows: 22 }} />;
+        return (
+            <TextArea onChange={this.codeChanged} autosize={{ minRows: 22 }} />
+        );
     }
 }
