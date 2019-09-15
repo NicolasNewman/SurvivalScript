@@ -4,8 +4,12 @@ import { Scene } from 'phaser';
 import Title from 'antd/lib/typography/Title';
 import { deflate } from 'zlib';
 
-import { store } from '../../index';
-import { log } from '../../actions/output';
+import {
+    clearCodeWrapper,
+    getCodeWrapper,
+    logOutputWrapper,
+    clearOutputWrapper
+} from './ReduxBridge';
 
 // C:\JSProj\SurvivalScript\app\Game\Scenes\assets\tilesets\MarsTileSet.png
 
@@ -21,6 +25,11 @@ export default class ExampleScene extends Scene {
 
     //Preloading Tileset and Character Image
     preload() {
+        this.load.image(
+            'runButton',
+            'Game/Scenes/assets/character/runButton.png'
+        );
+
         this.load.image(
             'tiles',
             'Game/Scenes/assets/tilesets/MarsAboveBelowTileSet64.png'
@@ -38,6 +47,9 @@ export default class ExampleScene extends Scene {
 
     //Create Function for Game Code
     create() {
+        //Create run button
+        //const runButton = this.add.text(800, 300, 'runButton');
+        //runButton.setInteractive();
         //Creating map and Tile Set
         const map = this.make.tilemap({ key: 'map' }); //Creating map
         const tileset = map.addTilesetImage('MarsAboveBelowTileSet64', 'tiles'); //Adding Tileset to Map
@@ -58,10 +70,24 @@ export default class ExampleScene extends Scene {
             'TestCharacter'
         );
 
+        const runButton = this.add.image(
+            player.x + 300,
+            player.y - 300,
+            'runButton'
+        );
+        runButton.setInteractive();
+
+        runButton.on('pointerover', () => {
+            console.log('pointerover');
+        });
         //Camera Settings
         camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
         camera.startFollow(player);
 
+        //Button
+        runButton.on('pointerdown', () => {
+            console.log('runButton clicked');
+        });
         //Movement
 
         //Up
@@ -74,11 +100,6 @@ export default class ExampleScene extends Scene {
                 player.y - (64 + 32),
                 true
             );
-
-            // Get the code
-            console.log('GAME STORE ', store.getState().code.code);
-            // Log to output
-            store.dispatch(log(`Player at (${player.x}, ${player.y})`));
 
             //Placing Footprints
             const tileAt = worldLayer.getTileAtWorldXY(player.x, player.y);
@@ -98,6 +119,7 @@ export default class ExampleScene extends Scene {
             } else {
                 let initialY = player.y;
                 player.y = initialY - 64;
+                runButton.setY(player.y - 300);
                 player.angle = 0;
             }
         });
@@ -131,6 +153,7 @@ export default class ExampleScene extends Scene {
             } else {
                 let initialX = player.x;
                 player.x = initialX + 64;
+                runButton.setX(player.x + 300);
                 player.angle = 90;
             }
         });
@@ -164,6 +187,7 @@ export default class ExampleScene extends Scene {
             } else {
                 let initialX = player.x;
                 player.x = initialX - 64;
+                runButton.setX(player.x + 300);
                 player.angle = -90;
             }
         });
@@ -197,6 +221,7 @@ export default class ExampleScene extends Scene {
             } else {
                 let initialY = player.y;
                 player.y = initialY + 64;
+                runButton.setY(player.y - 300);
                 player.angle = 180;
             }
         });

@@ -1,6 +1,12 @@
 // import store from "../store";
 // import { TOGGLE_UI } from "../store/gameReducer";
 import { Scene } from 'phaser';
+import {
+    clearCodeWrapper,
+    getCodeWrapper,
+    logOutputWrapper,
+    clearOutputWrapper
+} from './ReduxBridge';
 
 export default class TitleScene extends Scene {
     constructor() {
@@ -16,6 +22,7 @@ export default class TitleScene extends Scene {
     create() {
         this.add.image(415, 330, 'Background').setDisplaySize(830, 720);
         console.log('end create');
+        logOutputWrapper('The Devs say Hi');
     }
 
     update(time, delta) {
