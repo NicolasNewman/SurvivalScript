@@ -4,6 +4,7 @@ import { Component } from 'react';
 import Phaser from 'phaser';
 import TitleScene from '../../Game/Scenes/titleScene';
 import MainScene from '../../Game/Scenes/testScene';
+import BlackScene from '../../Game/Scenes/blackScene';
 import { GAME_WIDTH, HEIGHT } from '../../config';
 import M from 'minimatch';
 
@@ -25,7 +26,7 @@ export default class Game extends Component<IProps> {
             render: {
                 pixelArt: true
             },
-            scene: [TitleScene, MainScene]
+            scene: [TitleScene, MainScene, BlackScene]
         };
         const game = new Phaser.Game(config);
     }
