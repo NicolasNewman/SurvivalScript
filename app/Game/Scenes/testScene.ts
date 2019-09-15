@@ -12,14 +12,12 @@ export default class ExampleScene extends Scene {
     initialPlayerX = 1568;
     initialPlayerY = 1568;
     deltaTile = 64;
-    playerTileX = 25;
-    playerTileY = 25;
 
     //Preloading Tileset and Character Image
     preload() {
         this.load.image(
             'tiles',
-            'Game/Scenes/assets/tilesets/MarsTileSet64.png'
+            'Game/Scenes/assets/tilesets/MarsAboveBelowTileSet64.png'
         );
         this.load.tilemapTiledJSON(
             'map',
@@ -36,10 +34,15 @@ export default class ExampleScene extends Scene {
     create() {
         //Creating map and Tile Set
         const map = this.make.tilemap({ key: 'map' }); //Creating map
-        const tileset = map.addTilesetImage('MarsTileSet64', 'tiles'); //Adding Tileset to Map
+        const tileset = map.addTilesetImage('MarsAboveBelowTileSet64', 'tiles'); //Adding Tileset to Map
         const belowLayer = map.createStaticLayer('Below Player', tileset, 0, 0);
-        const worldLayer = map.createStaticLayer('World', tileset, 0, 0);
-        const aboveLayer = map.createStaticLayer('Above Player', tileset, 0, 0);
+        const worldLayer = map.createDynamicLayer('World', tileset, 0, 0);
+        const aboveLayer = map.createDynamicLayer(
+            'Above Player',
+            tileset,
+            0,
+            0
+        );
         const camera = this.cameras.main;
 
         //Creating Player
@@ -66,6 +69,10 @@ export default class ExampleScene extends Scene {
                 true
             );
 
+            //Placing Footprints
+            const tileAt = worldLayer.getTileAtWorldXY(player.x, player.y);
+            worldLayer.putTileAtWorldXY(5, player.x, player.y);
+
             //Determining if Path is Blocked
             let isBlocked;
             if (tileAbove === null) {
@@ -74,15 +81,17 @@ export default class ExampleScene extends Scene {
                 isBlocked = true;
             }
 
-            //Update Player Position
+            //Update Player Position and Angle
             if (isBlocked === true) {
+                player.angle = 0;
             } else {
                 let initialY = player.y;
                 player.y = initialY - 64;
+                player.angle = 0;
             }
         });
 
-        //Down
+        //Right
         let dKey = this.input.keyboard.addKey('D');
 
         dKey.on('down', event => {
@@ -93,6 +102,10 @@ export default class ExampleScene extends Scene {
                 true
             );
 
+            //Placing Footprints
+            const tileAt = worldLayer.getTileAtWorldXY(player.x, player.y);
+            worldLayer.putTileAtWorldXY(6, player.x, player.y);
+
             //Determining if Path is Blocked
             let isBlocked;
             if (tileRight === null) {
@@ -101,11 +114,13 @@ export default class ExampleScene extends Scene {
                 isBlocked = true;
             }
 
-            //Update Player Position
+            //Update Player Position and Angle
             if (isBlocked === true) {
+                player.angle = 90;
             } else {
                 let initialX = player.x;
                 player.x = initialX + 64;
+                player.angle = 90;
             }
         });
 
@@ -120,6 +135,10 @@ export default class ExampleScene extends Scene {
                 true
             );
 
+            //Placing Footprints
+            const tileAt = worldLayer.getTileAtWorldXY(player.x, player.y);
+            worldLayer.putTileAtWorldXY(6, player.x, player.y);
+
             //Determining if Path is Blocked
             let isBlocked;
             if (tileLeft === null) {
@@ -128,15 +147,17 @@ export default class ExampleScene extends Scene {
                 isBlocked = true;
             }
 
-            //Update Player Position
+            //Update Player Position and Angle
             if (isBlocked === true) {
+                player.angle = -90;
             } else {
                 let initialX = player.x;
                 player.x = initialX - 64;
+                player.angle = -90;
             }
         });
 
-        //Right
+        //Down
         let sKey = this.input.keyboard.addKey('S');
 
         sKey.on('down', event => {
@@ -147,6 +168,10 @@ export default class ExampleScene extends Scene {
                 true
             );
 
+            //Placing Footprints
+            const tileAt = worldLayer.getTileAtWorldXY(player.x, player.y);
+            worldLayer.putTileAtWorldXY(5, player.x, player.y);
+
             //Determining if Path is Blocked
             let isBlocked;
             if (tileBelow === null) {
@@ -155,11 +180,13 @@ export default class ExampleScene extends Scene {
                 isBlocked = true;
             }
 
-            //Update Player Position
+            //Update Player Position and Angle
             if (isBlocked === true) {
+                player.angle = 180;
             } else {
                 let initialY = player.y;
                 player.y = initialY + 64;
+                player.angle = 180;
             }
         });
     }
