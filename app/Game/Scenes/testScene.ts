@@ -50,7 +50,6 @@ export default class ExampleScene extends Scene {
         //Create run button
         //const runButton = this.add.text(800, 300, 'runButton');
         //runButton.setInteractive();
-
         //Creating map and Tile Set
         const map = this.make.tilemap({ key: 'map' }); //Creating map
         const tileset = map.addTilesetImage('MarsAboveBelowTileSet64', 'tiles'); //Adding Tileset to Map
