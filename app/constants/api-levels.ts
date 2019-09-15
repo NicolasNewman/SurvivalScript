@@ -3,13 +3,14 @@ export const LevelList: Array<string> = [
     \n## Bot ID #654678 IE. Name: 'Qwerty' 
     \nCreated by Central Command: Exploration and Resource Exploitation
     \n**Equipped with: ** 
-    \n1. Automatic Satellite Visual = Online; set coordinates to reestablish and maintain lock 
-    \n2. Laser Mining Drill = Offline 
-    \n3. Matter Scrambling Assembler = Offline 
+    \n 1. Automatic Satellite Visual = Online
+    \n**Task:** set coordinates to reestablish and maintain lock 
+    \n 2. Laser Mining Drill = Offline 
+    \n 3. Matter Scrambling Assembler = Offline 
     \n**Central Command: **
     \nWelcome to Central Command, this is the Command List, or CL where all programming information can be found  
-    \n**ERROR:** Missing memory files, manual initialization is required through terminal 
-    \nLoading intitialization program... 
+    \n**ERROR:** Missing memory files, manual initialization of satalite is required through terminal 
+    \nTo begin initialization type 'init' into terminal and press run
     
     `,
     `
