@@ -4,6 +4,9 @@ import { Scene } from 'phaser';
 import Title from 'antd/lib/typography/Title';
 import { deflate } from 'zlib';
 
+import { store } from '../../index';
+import { log } from '../../actions/output';
+
 // C:\JSProj\SurvivalScript\app\Game\Scenes\assets\tilesets\MarsTileSet.png
 
 export default class ExampleScene extends Scene {
@@ -71,6 +74,7 @@ export default class ExampleScene extends Scene {
                 player.y - (64 + 32),
                 true
             );
+            store.dispatch(log(`Player at (${player.x}, ${player.y})`));
 
             //Placing Footprints
             const tileAt = worldLayer.getTileAtWorldXY(player.x, player.y);
