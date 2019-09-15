@@ -5,6 +5,9 @@ import { Scene } from 'phaser';
 // C:\JSProj\SurvivalScript\app\Game\Scenes\assets\tilesets\MarsTileSet.png
 
 export default class ExampleScene extends Scene {
+    constructor() {
+        super('MainScene');
+    }
     preload() {
         this.load.image('tiles', 'Game/Scenes/assets/tilesets/MarsTileSet.png');
         this.load.tilemapTiledJSON(
