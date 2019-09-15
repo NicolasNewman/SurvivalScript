@@ -5,7 +5,7 @@ export const LevelList: Array<string> = [
     `,
     `# Level 1.1
     \n## Hello
-    \nThis fucking sucks`,
+    \nThis sucks`,
     `
     # Level 1.2 \n
     ## Heading 2
