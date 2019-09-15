@@ -1,21 +1,31 @@
 import { string } from 'prop-types';
 
 export enum ApiTypeKeys {
-    LOG_API = 'LOG_API'
+    ADD_LEVEL = 'ADD_LEVEL',
+    DEBUG = 'DEBUG'
 }
 
-interface LogAction {
-    type: ApiTypeKeys.LOG_API;
-    text: string;
+interface AddLevelAction {
+    type: ApiTypeKeys.ADD_LEVEL;
 }
 
-export type ApiTypes = LogAction;
-
-export function log(text: string) {
+export function addLevel() {
     return {
-        type: ApiTypeKeys.LOG_API,
-        text
+        type: ApiTypeKeys.ADD_LEVEL
     };
 }
 
-export default { log };
+interface DebugAction {
+    type: ApiTypeKeys.DEBUG;
+    indexes: Array<number>;
+}
+
+export function debug(indexes: Array<number>) {
+    return {
+        type: ApiTypeKeys.DEBUG,
+        indexes
+    };
+}
+
+export type ApiTypes = AddLevelAction | DebugAction;
+export default { addLevel, debug };

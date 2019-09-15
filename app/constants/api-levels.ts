@@ -1,4 +1,4 @@
-export default [
+export const LevelList: Array<String> = [
     `
     # Level 1 \n
     ## Heading 2
