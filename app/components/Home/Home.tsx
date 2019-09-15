@@ -12,10 +12,12 @@ interface IProps extends RouteComponentProps<any> {
     levels: Array<string>;
     levelIndex: number;
     text: string;
+    code: string;
 
     log: (text: string) => void;
     debug: (indexes: Array<number>) => void;
     addLevel: () => void;
+    setCode: (code: string) => void;
 }
 
 export default class Home extends Component<IProps> {
@@ -50,6 +52,8 @@ export default class Home extends Component<IProps> {
                     <UserTabs
                         allText={this.props.allText}
                         text={this.props.text}
+                        code={this.props.code}
+                        setCode={this.props.setCode}
                     />
                 </div>
 

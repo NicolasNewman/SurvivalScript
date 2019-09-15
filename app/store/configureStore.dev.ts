@@ -6,6 +6,7 @@ import { createLogger } from 'redux-logger';
 import createRootReducer from '../reducers';
 import * as outputActions from '../actions/output';
 import * as apiActions from '../actions/api';
+import * as codeActions from '../actions/code';
 
 const history = createHashHistory();
 
@@ -38,7 +39,8 @@ const configureStore = (initialState?: any) => {
     const actionCreators = {
         ...outputActions,
         ...apiActions,
-        ...routerActions
+        ...routerActions,
+        ...codeActions
     };
     // If Redux DevTools Extension is installed use it, otherwise use Redux compose
     /* eslint-disable no-underscore-dangle */
